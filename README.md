@@ -105,31 +105,56 @@ This is the fun part. Besides the issues with the model, a couple of different i
 	<img src="Classifier_Images/Fig5_TestImage1.png?raw=true" width=35% height=35%>
 </p>
 
-According to the model, the rabbit figure is a **rabbit**.
+```bash
+1/1 [==============================] - 0s 26ms/step
+array([[1.]], dtype=float32)
+```
+
+So, according to the model, the rabbit figure is a **rabbit**.
 
 <p align="center">
 	<img src="Classifier_Images/Fig6_TestImage2.png?raw=true" width=35% height=35%>
 </p>
 
-According to the model, the stuffed toy is a **rabbit**.
+```bash
+1/1 [==============================] - 0s 23ms/step
+array([[1.]], dtype=float32)
+```
+
+Then, according to the model, the stuffed toy is a **rabbit**.
 
 <p align="center">
 	<img src="Classifier_Images/Fig7_TestImage3.png?raw=true" width=35% height=35%>
 </p>
 
-According to the model, the duck is a **duck**.
+```bash
+1/1 [==============================] - 0s 23ms/step
+array([[0.]], dtype=float32)
+```
+
+As expectable, the duck is a **duck**.
 
 <p align="center">
 	<img src="Classifier_Images/Fig8_TestImage4.png?raw=true" width=35% height=35%>
 </p>
 
-According to the model, the duck drawing is a **duck**.
+```bash
+1/1 [==============================] - 0s 26ms/step
+array([[0.]], dtype=float32)
+```
+
+Therefore, according to the model, the duck drawing is a **duck**.
 
 <p align="center">
 	<img src="Classifier_Images/Fig9_TestImage5.png?raw=true" width=35% height=35%>
 </p>
 
-According to the model, the famous rabbit-duck illusion (which actually inspired this whole project) ir more a **rabbit** than a duck.
+```bash
+1/1 [==============================] - 0s 23ms/step
+array([[1.]], dtype=float32)
+```
+
+Thus, according to the model, the famous rabbit-duck illusion (which actually inspired this whole project) ir more a **rabbit** than a duck.
 
 ### **6. Conclusions**
 
