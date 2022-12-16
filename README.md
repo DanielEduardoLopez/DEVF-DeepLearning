@@ -1,6 +1,8 @@
 # DEVF-Deep Learning
 Repository of the challenges &amp; projects from the *Deep Learning* module of the **Master in Data Science & Artificial Intelligence** at [DEV.F](https://www.devf.la/master/data/mx).
 
+_____
+
 # Final Project: **Rabbit/Duck Classifier with Convolutional Neural Networks**
 
 ### **1. Goal**
@@ -20,6 +22,39 @@ A model with the following architecture is proposed, based on the guidelines fro
 7. A full connection layer with 128 nodes and a ReLU activation function, and a dropout of 20%.
 8. An output layer of 1 node and a sigmoid activation function.
 
+The code of the model in Python is as follows:
+```python
+# Initialization of the CNN
+classifier = Sequential()
+
+# Convolution
+classifier.add(Conv2D(filters = 32,kernel_size = (3, 3), 
+                      input_shape = (64, 64, 3), activation = "relu"))
+
+# Max Pooling
+classifier.add(MaxPooling2D(pool_size = (2,2)))
+
+# Convolution
+classifier.add(Conv2D(filters = 32,kernel_size = (3, 3), activation = "relu"))
+
+# Max Pooling
+classifier.add(MaxPooling2D(pool_size = (2,2)))
+
+# Convolution
+classifier.add(Conv2D(filters = 64,kernel_size = (3, 3), activation = "relu"))
+
+# Max Pooling
+classifier.add(MaxPooling2D(pool_size = (2,2)))
+
+# Flattening
+classifier.add(Flatten())
+
+# Full Connection
+classifier.add(Dense(units = 128, activation = "relu"))
+classifier.add(Dropout(0.2))
+classifier.add(Dense(units = 1, activation = "sigmoid"))
+```
+
 ### **3. Data Augmentation**
 An original training dataset of 200 pictures and 200 pictures of ducks was used. The pictures were retrieved from the internet. On the other hand, testing sets of 40 pictures were used by each category.
 
@@ -30,9 +65,71 @@ The dataset can be found
 
 The model was fitted with the training dataset and then validated with the testing set.
 
+In this sense, the plot of the **training accuracy by epoch** is shown below:
+
+<p align="center">
+	<img src="Classifier_Images/Fig1_TrainingAccuracy.png?raw=true" width=65% height=65%>
+</p>
+
+The training accuracy curve raised from an initial value of 0.55 to a final value of about 0.80. So, the profile of the curve falls into the expectable and desirable for this case.
+
+Moreover, the plot of the **training loss by epoch** is shown below:
+
+<p align="center">
+	<img src="Classifier_Images/Fig2_TrainingLoss.png?raw=true" width=65% height=65%>
+</p>
+
+Likewise, the training loss decreased from an initial value of about 0.68 to a final value of 0.40.
+
+On the other hand, the plot of the **testing accuracy by epoch** is shown below:
+
+<p align="center">
+	<img src="Classifier_Images/Fig3_TestingAccuracy.png?raw=true" width=65% height=65%>
+</p>
+
+Unlike the training accuracy plot, the testing accuracy beahvior by epoch is erratic and follow no distintive trend. This might suggest two issues: The testing set is too small and the fitted model is incapable of provide generalizable results, which render the model as a **bad** model.
+
+Furthermore, the plot of the **testing loss by epoch** is shown below:
+
+<p align="center">
+	<img src="Classifier_Images/Fig4_TestingLoss.png?raw=true" width=65% height=65%>
+</p>
+
+As expectable from the testing accuracy plot, the testing loss by epoch is erratic and even ends with a higher loss in comparison with the begining loss, which of course means that the fitted model is useless.
+
 ### **5. Model Testing**
 
-This is the fun part. Besides the issues with the model, a couple of different images resembling rabbits and ducks were pass down to the model to see if it was capable to accurately classify the object.
+This is the fun part. Besides the issues with the model, a couple of different images resembling rabbits and ducks were pass down to the model to see if it was capable to accurately classify the objects.
+
+<p align="center">
+	<img src="Classifier_Images/Fig5_TestImage1.png?raw=true" width=35% height=35%>
+</p>
+
+According to the model, the rabbit figure is a **rabbit**.
+
+<p align="center">
+	<img src="Classifier_Images/Fig6_TestImage2.png?raw=true" width=35% height=35%>
+</p>
+
+According to the model, the stuffed toy is a **rabbit**.
+
+<p align="center">
+	<img src="Classifier_Images/Fig7_TestImage3.png?raw=true" width=35% height=35%>
+</p>
+
+According to the model, the duck is a **duck**.
+
+<p align="center">
+	<img src="Classifier_Images/Fig8_TestImage4.png?raw=true" width=35% height=35%>
+</p>
+
+According to the model, the duck drawing is a **duck**.
+
+<p align="center">
+	<img src="Classifier_Images/Fig9_TestImage5.png?raw=true" width=35% height=35%>
+</p>
+
+According to the model, the famous rabbit-duck illusion (which actually inspired this whole project) more a **rabbit** than a duck.
 
 ### **6. Conclusions**
 
@@ -43,3 +140,7 @@ The result is positive taking into account the extremely small dataset used for 
 Notwithstanding the above, it is noteworthy that the difference between training and testing accuracy was of about 0.20, which strongly suggests that overfitting might have ocurred within the model. 
 
 Thus, in order to provide generalizability and accurate predictions, it is advisable to train the model with a larger dataset, such as one with 2000-5000 images; as well as using a larger testing dataset such as one with 1000 images to get a more accurate evaluation of the performance of the model.
+
+### **7. References**
+* **Collet, F. (2016).** *Building powerful image classification models using very little data*. https://blog.keras.io/building-powerful-image-classification-models-using-very-little-data.html
+* **Sarkar, T. (2019).** *Keras utility methods for streamlining training of convolutional neural net*. https://github.com/tirthajyoti/Deep-learning-with-Python/blob/master/Notebooks/Keras_flow_from_directory.ipynb
