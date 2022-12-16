@@ -129,7 +129,7 @@ According to the model, the duck drawing is a **duck**.
 	<img src="Classifier_Images/Fig9_TestImage5.png?raw=true" width=35% height=35%>
 </p>
 
-According to the model, the famous rabbit-duck illusion (which actually inspired this whole project) more a **rabbit** than a duck.
+According to the model, the famous rabbit-duck illusion (which actually inspired this whole project) ir more a **rabbit** than a duck.
 
 ### **6. Conclusions**
 
