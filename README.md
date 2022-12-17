@@ -164,7 +164,7 @@ Therefore, according to the model, the duck drawing is a **duck**.
 array([[1.]], dtype=float32)
 ```
 
-Thus, according to the model, the famous rabbit-duck illusion (which actually inspired this whole project) ir more a **rabbit** than a duck.
+Thus, according to the model, the famous rabbit-duck illusion (which actually inspired this whole project) is more a **rabbit** than a duck.
 
 ### **6. Conclusions**
 
