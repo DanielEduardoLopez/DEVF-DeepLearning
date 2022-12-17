@@ -24,6 +24,14 @@ A model with the following architecture is proposed, based on the guidelines fro
 
 The code of the model in Python is as follows:
 ```python
+# Libraries
+from keras.models import Sequential
+from keras.layers import Conv2D
+from keras.layers import MaxPooling2D
+from keras.layers import Flatten
+from keras.layers import Dense
+from keras.layers import Dropout
+
 # Initialization of the CNN
 classifier = Sequential()
 
@@ -54,6 +62,8 @@ classifier.add(Dense(units = 128, activation = "relu"))
 classifier.add(Dropout(0.2))
 classifier.add(Dense(units = 1, activation = "sigmoid"))
 ```
+
+Please refer to the <a href="https://github.com/DanielEduardoLopez/DEVF-DeepLearning/blob/main/FinalProject_RabbitClassifier_CNN.ipynb"> Jupyter notebook</a> for all the details. 
 
 ### **3. Data Augmentation**
 An original training dataset of 200 pictures and 200 pictures of ducks was used. The pictures were retrieved from the internet. On the other hand, testing sets of 40 pictures were used by each category.
